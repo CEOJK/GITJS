@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222222;
+        }
+
+        h1 {
+            position: relative;
+            /*文字大写*/
+            text-transform: uppercase;
+            color: #333333;
+            /*1rem=16px*/
+            font-size: 5rem;
+            margin-top: -300px;
+
+        }
+
+        h1::after {
+            content: '欢迎使用GitHub仓库';
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: linear-gradient(to right,
+                    #c23616, #192a56, #00d2d3, yellow, #6d214f, #2e86de,
+                    #4cd137, #e84118);
+            /* 背景绘制区域 当值为text 的时候 代表设置了文字的镂空效果 
+    但是前提必须是文字颜色为透明色 */
+            /* 文字透明色 */
+            color: transparent;
+            /*谷歌浏览器独有*/
+            -webkit-background-clip: text;
+            /*利用裁切来创建元素的可显示区域
+    circle表示创建了圆形100px表示圆形的直径,
+    0%和50%表示圆形的圆心圆形的直径和圆形的圆
+    心利用at关键字隔开*/
+            clip-path: circle(100px at 0% 50%);
+            /*动画名称时长 infinite表示无限次播放*/
+            animation: move 5s infinite;
+            /* z-index: -1; */
+        }
+
+        /*下面设置圆形移动效果*/
+        @keyframes move {
+            0% {
+                clip-path: circle(100px at 0% 50%);
+            }
+
+            50% {
+                clip-path: circle(100px at 100% 50%);
+            }
+
+            100% {
+                clip-path: circle(100px at 0% 50%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+      欢迎使用GitHub仓库
+    </h1>
+</body>
+
+</html>
